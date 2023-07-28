@@ -1,0 +1,12 @@
+:root{
+    --fungo: green;
+    --hair: white;
+
+}
+
+body{
+
+    background: var(--fungo);
+    color: var(--hair);
+}
+
