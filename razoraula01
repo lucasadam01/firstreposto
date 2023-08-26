@@ -1,0 +1,57 @@
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+        <form method="post">
+              <fieldset style="width:30%;border:groove; border-color:cadetblue; background-color:lightblue"> 
+                  <legend style="font-size:medium; font-family:'Lucida Sans'; color:navy; background-color:thistle">
+                      Adicionar Disco
+                  </legend>
+                  <div>
+                      <label for="NomeDisco">Nome do Disco:</label>
+                      <input type="text" name="NomeDisco" value="" placeholder="Ex...The New Abnormal" autocomplete="off"/> 
+                  </div>
+                  <div>
+                      <label for="NomeArtista">Nome do Artista:</label>
+                      <input type="text" name="NomeArtista" value="" autocomplete="off" />
+                  </div>
+                  <div>
+                      <label for="Faixas">Quantidade de faixas:</label>
+                      <input type="number" name="Faixas" value="" min="1" autocomplete="off"/>
+                  </div>
+                  <div>
+                      <br />
+                      <label>&nbsp;</label>
+                      <input type="submit" value="Adicionar" class="submit" style="cursor:pointer"/>
+                  </div>
+              </fieldset>
+        </form>   
+        <div>
+            @{
+                if (IsPost)
+                {
+                    string nomeDisco = Request.Form["NomeDisco"];
+                    string nomeArtista = Request.Form["NomeArtista"];
+                    int nFaixas = Request.Form["Faixas"].AsInt();
+
+                    <fieldset style="width:30%;border:groove; border-color:cadetblue; background-color:lightblue">
+                        <legend style="font-size:medium; font-family:'Lucida Sans'; color:navy; background-color:thistle">
+                            Disco Adicionado
+                        </legend>
+                        <p>Nome do Disco: @nomeDisco
+                        <p>Nome do Artista: @nomeArtista</p>
+                        <p>Numero de faixas: @nFaixas</p>
+                    </fieldset>
+                        }
+                        }
+</div>
+</body>
+</html>
